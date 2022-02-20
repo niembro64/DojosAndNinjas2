@@ -12,17 +12,22 @@
         <title>Dojos</title>
     </head>
     <body>
-        <h1>DOJOS</h1>
-        <form action="/fun_create_dojo" method="POST">
-            <label for="name">Dojo Name:</label>
-            <input type="text" name="name" />
-            <input type="submit" value="Create" />
-        </form>
-        <a href="/new_ninja">Add Ninja</a>
-        {% for one_dojo in all_dojos %}
-        <p>____________</p>
-        <p><a href="/dojos/{{one_dojo.id}}">{{ one_dojo.name }}</a></p>
-        <p>____________</p>
-        {% endfor %}
+        <div class="unit">
+            <h1>NEW DOJO</h1>
+            <form action="/fun_create_dojo" method="POST">
+                <label for="name">Dojo Name:</label>
+                <input type="text" name="name" />
+                <input type="submit" value="Create" />
+            </form>
+        </div>
+        <div class="unit">
+            <h1>DOJOS</h1>
+            {% for one_dojo in all_dojos %}
+            <p><a href="/dojos/{{one_dojo.id}}">{{ one_dojo.name }}</a></p>
+            {% endfor %}
+            <div class="unit">
+                <a href="/new_ninja">Add Ninja</a>
+            </div>
+        </div>
     </body>
 </html>

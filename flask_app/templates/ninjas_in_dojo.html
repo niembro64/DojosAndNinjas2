@@ -12,14 +12,18 @@
         <title>Document</title>
     </head>
     <body>
-        <h1>NINJAS IN DOJO</h1>
-        <h2>{{ninjas_in_a_dojo[0].dojo.name}}</h2>
-        <p>__________</p>
-        {% for one_ninja in ninjas_in_a_dojo %}
-        
-        <p>{{one_ninja.first_name}}</p>
-        
-        <p>__________</p>
-        {% endfor %}
+        <a href="/dojos">Home</a>
+        <div class="unit">
+            <div class="unit" id="nindo">
+                <h1>NINJAS IN DOJO</h1>
+                <h2>{{ninjas_in_a_dojo[0].dojo.name}}</h2>
+            </div>
+
+            {% for one_ninja in ninjas_in_a_dojo %}
+
+            <p>{{one_ninja.first_name}}</p>
+
+            {% endfor %}
+        </div>
     </body>
 </html>
