@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>Dojos</title>
-</head>
-<body>
-    <h1>DOJOS</h1>
-    <form action="/fun_create_dojo" method="POST">        
-        <label for="name">Dojo Name:</label>
-        <input type="text" name="name">
-        <input type="submit" value="Create">
-    </form> 
-
-    {% for one_dojo in all_dojos %}
-    <p>======================================</p>
-    <p>{{ one_dojo.name }}</p>    
-
-    {% endfor %}
-
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <title>Dojos</title>
+    </head>
+    <body>
+        <h1>DOJOS</h1>
+        <form action="/fun_create_dojo" method="POST">
+            <label for="name">Dojo Name:</label>
+            <input type="text" name="name" />
+            <input type="submit" value="Create" />
+        </form>
+        <a href="/new_ninja">Add Ninja</a>
+        {% for one_dojo in all_dojos %}
+        <p>____________</p>
+        <p>{{ one_dojo.name }}</p>
+        <p>____________</p>
+        {% endfor %}
+    </body>
 </html>
