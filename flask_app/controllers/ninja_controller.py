@@ -8,13 +8,19 @@ from flask_app.models.dojo import Dojo
 def new_ninja():
     return render_template("new_ninja.html")
 
+# @app.route("/dojos/0")
+# def view_ninjas_in_dojos():
+#     dojo_with_ninjas = Ninja.get_ninjas_in_dojos()
+#     return render_template("ninjas_in_dojo.html", ninjas_in_dojos = dojo_with_ninjas)
+
 @app.route("/dojos/<int:dojo_id>")
 def view_dojo(dojo_id):
     data = {
         "dojo_id": dojo_id
     }
-    ninjas = Ninja.get_ninjas_in_dojo(data)
-    return render_template("ninjas_in_dojo.html", ninjas_in_dojo = ninjas)
+    dojo_with_ninjas = Ninja.get_ninjas_in_a_dojo(data)
+    return render_template("ninjas_in_dojo.html", ninjas_in_a_dojo = dojo_with_ninjas)
+
 
 
 ###################

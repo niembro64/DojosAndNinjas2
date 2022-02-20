@@ -15,7 +15,6 @@ def show_dojos():
     return render_template("dojos.html", all_dojos = dojos)
 
 
-
 ###################
 
 @app.route("/fun_create_dojo", methods=["POST"])

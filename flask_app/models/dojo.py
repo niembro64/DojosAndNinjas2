@@ -24,3 +24,6 @@ class Dojo:
         query = "INSERT INTO dojos (name, created_at, updated_at) VALUES (%(name)s, NOW(), NOW());"
         new_id = connectToMySQL("dojos_and_ninjas").query_db(query, data)
         return new_id
+
+
+ 

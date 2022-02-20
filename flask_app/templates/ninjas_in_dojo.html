@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-    rel="stylesheet"
-    type="text/css"
-    href="{{ url_for('static', filename='style.css') }}"
-/>
-    <title>Ninjas In Dojo</title>
-</head>
-<body>
-    <h1>NINJAS IN DOJO</h1>
-    
-    {% for one_ninja in ninjas_in_dojo %}
-
-    <p>{{one_ninja.first_name}} {{one_ninja.last_name}}</p>
-
-    {% endfor %}
-
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>NINJAS IN DOJO</h1>
+        <h2>{{ninjas_in_a_dojo[0].dojo.name}}</h2>
+        <p>__________</p>
+        {% for one_ninja in ninjas_in_a_dojo %}
+        
+        <p>{{one_ninja.first_name}}</p>
+        
+        <p>__________</p>
+        {% endfor %}
+    </body>
 </html>

@@ -21,12 +21,38 @@ class Ninja:
         new_id = connectToMySQL("dojos_and_ninjas").query_db(query, data)
         return new_id
 
+    # @classmethod
+    # def get_ninjas_in_dojos(cls):
+    #     query = "SELECT * FROM ninjas JOIN dojos on dojos.id = ninjas.dojo_id;"
+    #     results = connectToMySQL("dojos_and_ninjas").query_db(query)
+    #     all_ninjas_w_dojos = []
+    #     for row in results:
+    #          one_ninja = cls(row)
+    #          dojo_data = {
+    #              "id" : row["dojos.id"],
+    #              "name" : row["name"],
+    #              "created_at" : row["dojos.created_at"],
+    #              "updated_at" : row["dojos.updated_at"]
+    #          }
+    #          one_ninja.dojo = dojo.Dojo(dojo_data)
+    #          all_ninjas_w_dojos.append(one_ninja)
+    #     return all_ninjas_w_dojos
 
     @classmethod
-    def get_ninjas_in_dojo(cls, data):
-        query = "SELECT * FROM ninjas WHERE dojo_id = 2;"
-        results = connectToMySQL("dojos_and_ninjas").query_db(query)
-        all_ninjas = []
-        for one_ninja in results:
-            all_ninjas.append( cls(one_ninja) )
-        return all_ninjas
+    def get_ninjas_in_a_dojo(cls, data):
+        query = "SELECT * FROM ninjas JOIN dojos on dojos.id = ninjas.dojo_id WHERE ninjas.dojo_id = %(dojo_id)s;"
+        # query = "INSERT INTO ninjas (created_at, updated_at, dojo_id) VALUES (NOW(), NOW(), %(id)s);"
+        results = connectToMySQL("dojos_and_ninjas").query_db(query, data)
+        all_ninjas_w_dojos = []
+        for row in results:
+             one_ninja = cls(row)
+             dojo_data = {
+                 "id" : row["dojos.id"],
+                 "name" : row["name"],
+                 "created_at" : row["dojos.created_at"],
+                 "updated_at" : row["dojos.updated_at"]
+             }
+             one_ninja.dojo = dojo.Dojo(dojo_data)
+
+             all_ninjas_w_dojos.append(one_ninja)
+        return all_ninjas_w_dojos
