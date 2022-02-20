@@ -9,5 +9,17 @@
 </head>
 <body>
     <h1>DOJOS</h1>
+    <form action="/fun_create_dojo" method="POST">        
+        <label for="name">Dojo Name:</label>
+        <input type="text" name="name">
+        <input type="submit" value="Create">
+    </form> 
+
+    {% for one_dojo in all_dojos %}
+    <p>======================================</p>
+    <p>{{ one_dojo.name }}</p>    
+
+    {% endfor %}
+
 </body>
 </html>
