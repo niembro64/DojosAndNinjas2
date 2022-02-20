@@ -5,7 +5,9 @@
 }
 
 input[type="button"],
-input[type="submit"] {
+input[type="submit"],
+select,
+option {
     padding: 10px 20px;
     margin: 3px;
     color: white;
