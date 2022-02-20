@@ -6,7 +6,8 @@ from flask_app.models.dojo import Dojo
 
 @app.route("/new_ninja")
 def new_ninja():
-    return render_template("new_ninja.html")
+    a = Dojo.all_dojos()
+    return render_template("new_ninja.html", all_dojos = a)
 
 # @app.route("/dojos/0")
 # def view_ninjas_in_dojos():

@@ -25,11 +25,13 @@
                 <label for="age">Age:</label>
                 <input type="number" name="age" />
 
-                <label for="dojo">Dojo:</label>
-                <select name="age" id="age">
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
+                <label for="dojo_id">Dojo:</label>
+                <select name="dojo_id" id="dojo_id">
+
+                    {% for one_dojo in all_dojos %}
+                    <option value="{{one_dojo.id}}">{{one_dojo.name}}</option>
+
+                    {% endfor %}
                 </select>
 
                 <!-- <label for="dojo_id">Dojo ID:</label>

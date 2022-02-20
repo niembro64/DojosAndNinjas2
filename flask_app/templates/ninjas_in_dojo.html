@@ -14,16 +14,23 @@
     <body>
         <a href="/dojos">Home</a>
         <div class="unit">
+
+
+            {% if ninjas_in_a_dojo[0] is defined %}
+
+
             <div class="unit" id="nindo">
                 <h1>NINJAS IN DOJO</h1>
+                
                 <h2>{{ninjas_in_a_dojo[0].dojo.name}}</h2>
             </div>
-
             {% for one_ninja in ninjas_in_a_dojo %}
-
-            <p>{{one_ninja.first_name}}</p>
-
+            <p>{{one_ninja.first_name}} {{one_ninja.last_name}}</p>
             {% endfor %}
+
+            
+            {% endif %}
+
         </div>
     </body>
 </html>
