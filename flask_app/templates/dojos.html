@@ -21,7 +21,7 @@
         <a href="/new_ninja">Add Ninja</a>
         {% for one_dojo in all_dojos %}
         <p>____________</p>
-        <p>{{ one_dojo.name }}</p>
+        <p><a href="/dojos/{{one_dojo.id}}">{{ one_dojo.name }}</a></p>
         <p>____________</p>
         {% endfor %}
     </body>

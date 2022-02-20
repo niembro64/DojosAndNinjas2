@@ -14,9 +14,7 @@ def show_dojos():
     dojos = Dojo.all_dojos()
     return render_template("dojos.html", all_dojos = dojos)
 
-@app.route("/new_ninja")
-def new_ninja():
-    return render_template("new_ninja.html")
+
 
 ###################
 
